@@ -1,13 +1,13 @@
 /*** 
  * 使用C语言实现动态数组源代码
- * @author runoob
- * @version 1.2
+ * @author YuanxMo
+ * @version 1.0
 */
 
 #ifndef SEQLIST_H
 #define SEQLIST_H
 
-
+// 头文件
 #include <stdio.h>
 #include <stdlib.h>
 

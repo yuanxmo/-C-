@@ -29,6 +29,7 @@ typedef struct SeqList {
     int capicity;
 } SeqList;
 
+
 /**
  * 初始化动态数组
  * @return 初始化完成的动态数组指针

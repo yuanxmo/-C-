@@ -25,6 +25,11 @@ int main() {
     flag = clear_SeqList(seq_list);
     SeqList_print(seq_list);
 
+    printf("%d\n", seq_list);
+    flag = destory_SeqList(&seq_list);
+    printf("%d\n", seq_list);
+
+
     system("pause");
     return 0;
 }

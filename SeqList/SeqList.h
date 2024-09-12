@@ -40,6 +40,8 @@ typedef struct SeqList {
  * @param (SeqList*)seqList 待打印的动态数组结构类型的指针
  */
 void SeqList_print(SeqList* seqList) {
+    if (!seqList)
+        return;
     for (int i = 0; i < seqList->size; i++)
         printf("%d ", seqList->array[i]);
     printf("\n");
@@ -232,7 +234,21 @@ int clear_SeqList(SeqList* seqList) {
     return 1;
 }
 
-
+/**
+ * 销毁数组, 释放内存
+ * 
+ * @param (SeqList*)seqList 动态数组结构类型指针
+ * @return 1 表示成功, 0 表示失败
+ */
+int destory_SeqList(SeqList** seqList) {
+    if (!seqList)
+        return 0;
+    free((*seqList)->array);
+    (*seqList)->array = NULL;
+    free(*seqList);
+    *seqList = NULL;
+    return 1;
+}
 
 
 

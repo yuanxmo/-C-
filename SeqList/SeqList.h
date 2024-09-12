@@ -48,6 +48,18 @@ void SeqList_print(SeqList* seqList) {
 }
 
 /**
+ * 获取动态数组占用的大小
+ * 
+ * @return 动态数组占用的大小
+ */
+int get_SeqList_length(SeqList* seqList) {
+    // 判断动态数组是否为空
+    if (seqList == NULL)
+        return 0;
+    return seqList->size;
+}
+
+/**
  * 初始化动态数组
  * 
  * @return 初始化完成的动态数组指针
@@ -68,43 +80,6 @@ SeqList* SeqList_init() {
     seqList->array = (int*)malloc(sizeof(int) * seqList->capicity);
     // 返回动态数组指针
     return seqList;
-}
-
-/**
- * 获取动态数组占用的大小
- * 
- * @return 动态数组占用的大小
- */
-int get_SeqList_length(SeqList* seqList) {
-    // 判断动态数组是否为空
-    if (seqList == NULL)
-        return 0;
-    return seqList->size;
-}
-
-/**
- * 获取下标为 index 的值
- * 
- * @param (SeqList*)seqList 动态数组结构类型的指针
- * @param (int)index 需要获取动态数组元素的下标
- * @param (int*)ans 储存结果的值
- * @return 1 表示成功, 0 表示失败
- */
-int get_SeqList_by_index(
-    SeqList* seqList,
-    int index,
-    int* ans
-) {
-    // 判断是否合法
-    if (
-        seqList == NULL || // 是否为空
-        index >= seqList->size || // 下标是否合法
-        index < 0
-    ) {
-        return 0;
-    }
-    *ans = seqList->array[ index ];
-    return 1;
 }
 
 /**
@@ -218,6 +193,31 @@ int update_SeqList_by_index(
 }
 
 /**
+ * 获取下标为 index 的值
+ * 
+ * @param (SeqList*)seqList 动态数组结构类型的指针
+ * @param (int)index 需要获取动态数组元素的下标
+ * @param (int*)ans 储存结果的值
+ * @return 1 表示成功, 0 表示失败
+ */
+int get_SeqList_by_index(
+    SeqList* seqList,
+    int index,
+    int* ans
+) {
+    // 判断是否合法
+    if (
+        seqList == NULL || // 是否为空
+        index >= seqList->size || // 下标是否合法
+        index < 0
+    ) {
+        return 0;
+    }
+    *ans = seqList->array[ index ];
+    return 1;
+}
+
+/**
  * 清空数组, 并转换为初始状态
  * 
  * @param (SeqList*)seqList 动态数组结构类型指针
@@ -249,13 +249,5 @@ int destory_SeqList(SeqList** seqList) {
     *seqList = NULL;
     return 1;
 }
-
-
-
-
-
-
-
-
 
 #endif

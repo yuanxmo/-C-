@@ -7,7 +7,10 @@ int main() {
     }
     SeqList_print(seq_list);
 
-    int flag = insert_SeqList_by_index(seq_list, 3, 90000);
+    int flag = insert_SeqList_by_index(seq_list, 3, 1);
+    SeqList_print(seq_list);
+
+    flag = delete_SeqList_by_index(seq_list, 3);
     SeqList_print(seq_list);
 
 

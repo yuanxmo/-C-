@@ -155,8 +155,12 @@ int insert_SeqList_by_index(
     if (seqList->size >= seqList->capicity) {
         // 数组扩容
         seqList->capicity += SEQLIST_DEFAULT_ADD_CAPICITY;
+        // 备份数组地址
         int *p = seqList->array;
-        seqList->array = (int*)realloc(seqList->array, sizeof(int) * seqList->capicity);
+        seqList->array = (int*)realloc(
+            seqList->array, 
+            sizeof(int) * seqList->capicity
+        );
         // 判断扩容是否成功
         if (seqList->array == NULL) {
             seqList->array = p;
@@ -169,6 +173,30 @@ int insert_SeqList_by_index(
     seqList->size ++;
     return 1;
 }
+
+/**
+ * 删除数组指定位置(下标)
+ * 
+ * @param (SeqList*)seqList 动态数组结构类型指针
+ * @param (int)index 指定位置(下标)
+ * @return 1 表示成功, 0 表示失败
+ */
+int delete_SeqList_by_index(
+    SeqList* seqList,
+    int index
+) {
+    // 判断数组是否为空 || 判断下标是否合法
+    if (seqList == NULL || index < 0  || index >= seqList->size)
+        return 0;
+    for (int i = index; i < seqList->size - 1; i++)
+        seqList->array[i] = seqList->array[i+1];
+    seqList->size --;
+    return 1;
+}
+
+
+
+
 
 
 

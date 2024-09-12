@@ -135,8 +135,40 @@ int insert_SeqList(
     return 1;
 }
 
-
-
+/**
+ * 向数组指定位置插入值
+ * 
+ * @param (SeqList*)seqList 动态数组结构类型指针
+ * @param (int)index 指定位置(下标)
+ * @param (int)value 值
+ * @return 1 表示成功, 0 表示失败
+ */
+int insert_SeqList_by_index(
+    SeqList* seqList,
+    int index,
+    int value
+) {
+    // 判断数组是否为空 || 判断下标是否合法
+    if (seqList == NULL || index < 0  || index >= seqList->size)
+        return 0;
+    // 判断容量是否充足
+    if (seqList->size >= seqList->capicity) {
+        // 数组扩容
+        seqList->capicity += SEQLIST_DEFAULT_ADD_CAPICITY;
+        int *p = seqList->array;
+        seqList->array = (int*)realloc(seqList->array, sizeof(int) * seqList->capicity);
+        // 判断扩容是否成功
+        if (seqList->array == NULL) {
+            seqList->array = p;
+            return 0;
+        }
+    }
+    for (int i = seqList->size; i > index; i--) 
+        seqList->array[i] = seqList->array[ i-1 ];
+    seqList->array[ index ] = value;
+    seqList->size ++;
+    return 1;
+}
 
 
 

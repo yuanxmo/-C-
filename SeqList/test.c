@@ -13,6 +13,13 @@ int main() {
     flag = delete_SeqList_by_index(seq_list, 3);
     SeqList_print(seq_list);
 
+    flag = update_SeqList_by_index(seq_list, 100, 100);
+    printf("%d\n", flag);
+    SeqList_print(seq_list);
+
+    int p;
+    flag = get_SeqList_by_index(seq_list, 2, &p);
+    printf("%d %d\n", flag, p);
 
     system("pause");
     return 0;

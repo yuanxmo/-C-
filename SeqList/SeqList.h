@@ -85,13 +85,13 @@ int get_SeqList_length(SeqList* seqList) {
  * 
  * @param (SeqList*)seqList 动态数组结构类型的指针
  * @param (int)index 需要获取动态数组元素的下标
- * @param (int*)value 储存结果的值
+ * @param (int*)ans 储存结果的值
  * @return 1 表示成功, 0 表示失败
  */
 int get_SeqList_by_index(
     SeqList* seqList,
     int index,
-    int* value
+    int* ans
 ) {
     // 判断是否合法
     if (
@@ -101,7 +101,8 @@ int get_SeqList_by_index(
     ) {
         return 0;
     }
-    return seqList->array[ index ];
+    *ans = seqList->array[ index ];
+    return 1;
 }
 
 /**

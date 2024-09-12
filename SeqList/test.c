@@ -61,6 +61,7 @@ int main() {
     // 销毁数组, 释放内存功能测试
     printf("销毁数组, 释放内存功能测试\n");
     flag = destory_SeqList(&seq_list);
+    printf("\n");
     
 
     system("pause");

@@ -194,6 +194,28 @@ int delete_SeqList_by_index(
     return 1;
 }
 
+/**
+ * 修改数组指定位置(下标)的值
+ * 
+ * @param (SeqList*)seqList 动态数组结构类型指针
+ * @param (int)index 指定位置(下标)
+ * @param (int)value 值
+ * @return 1 表示成功, 0 表示失败
+ */
+int update_SeqList_by_index(
+    SeqList* seqList,
+    int index,
+    int value
+) {
+    // 判断数组是否为空 || 判断下标是否合法
+    if (seqList == NULL || index < 0  || index >= seqList->size)
+        return 0;
+    seqList->array[ index ] = value;
+    return 1;
+}
+
+
+
 
 
 

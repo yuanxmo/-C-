@@ -215,6 +215,23 @@ int update_SeqList_by_index(
     return 1;
 }
 
+/**
+ * 清空数组, 并转换为初始状态
+ * 
+ * @param (SeqList*)seqList 动态数组结构类型指针
+ * @return 1 表示成功, 0 表示失败
+ */
+int clear_SeqList(SeqList* seqList) {
+    if (seqList == NULL)
+        return 0;
+    int* p = seqList->array;
+    seqList->capicity = SEQLIST_DEFAULT_CAPICITY;
+    seqList->size = SEQLIST_DEFAULT_SIZE;
+    seqList->array = (int*)malloc(sizeof(int) * seqList->capicity);
+    free(p);
+    return 1;
+}
+
 
 
 

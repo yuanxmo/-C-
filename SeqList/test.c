@@ -21,6 +21,10 @@ int main() {
     flag = get_SeqList_by_index(seq_list, 2, &p);
     printf("%d %d\n", flag, p);
 
+    printf("测试\n");
+    flag = clear_SeqList(seq_list);
+    SeqList_print(seq_list);
+
     system("pause");
     return 0;
 }

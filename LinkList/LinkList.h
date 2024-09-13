@@ -24,6 +24,21 @@ typedef struct Node {
     struct Node* next;
 } ListNode, *LinkList;
 
+/**
+ * 以 ()->()->NULL 形式打印链表
+ * 
+ * @param (ListNode*) listNode 链表结点指针
+ */
+void ListNode_print_Link(ListNode* listNode) {
+    if (listNode == NULL)
+        return;
+    ListNode* p = listNode->next;
+    printf("Head->");
+    while (p != NULL) {
+        printf("%d ->", p->data);
+    }
+    printf("NULL\n");
+}
 
 
 

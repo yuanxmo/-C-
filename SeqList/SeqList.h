@@ -28,7 +28,7 @@
  * @param (int)capicity 动态数组实际分配的容量
  */
 typedef struct SeqList {
-    int* array;
+    int *array;
     int size;
     int capicity;
 } SeqList;
@@ -39,7 +39,7 @@ typedef struct SeqList {
  * 
  * @param (SeqList*)seqList 待打印的动态数组结构类型的指针
  */
-void SeqList_print(SeqList* seqList) {
+void SeqList_print(SeqList *seqList) {
     if (!seqList)
         return;
     for (int i = 0; i < seqList->size; i++)
@@ -50,9 +50,10 @@ void SeqList_print(SeqList* seqList) {
 /**
  * 获取动态数组占用的大小
  * 
+ * @param (SeqList*)seqList 动态数组结构类型指针
  * @return 动态数组占用的大小
  */
-int get_SeqList_length(SeqList* seqList) {
+int get_SeqList_length(SeqList *seqList) {
     // 判断动态数组是否为空
     if (seqList == NULL)
         return 0;
@@ -64,9 +65,9 @@ int get_SeqList_length(SeqList* seqList) {
  * 
  * @return 初始化完成的动态数组指针
  */
-SeqList* SeqList_init() {
+SeqList *SeqList_init() {
     // 声明动态数组变量，并分配内存
-    SeqList* seqList = (SeqList*)malloc(sizeof(SeqList));
+    SeqList *seqList = (SeqList*)malloc(sizeof(SeqList));
     // 判断是否分配成功
     if (seqList == NULL) {
         printf("动态数组初始化失败!\n");
@@ -90,7 +91,7 @@ SeqList* SeqList_init() {
  * @return 1 表示成功, 0 表示失败
  */
 int insert_SeqList(
-    SeqList* seqList,
+    SeqList *seqList,
     int value
 ) {
     // 判断数组是否为空
@@ -122,7 +123,7 @@ int insert_SeqList(
  * @return 1 表示成功, 0 表示失败
  */
 int insert_SeqList_by_index(
-    SeqList* seqList,
+    SeqList *seqList,
     int index,
     int value
 ) {
@@ -160,7 +161,7 @@ int insert_SeqList_by_index(
  * @return 1 表示成功, 0 表示失败
  */
 int delete_SeqList_by_index(
-    SeqList* seqList,
+    SeqList *seqList,
     int index
 ) {
     // 判断数组是否为空 || 判断下标是否合法
@@ -181,7 +182,7 @@ int delete_SeqList_by_index(
  * @return 1 表示成功, 0 表示失败
  */
 int update_SeqList_by_index(
-    SeqList* seqList,
+    SeqList *seqList,
     int index,
     int value
 ) {
@@ -201,9 +202,9 @@ int update_SeqList_by_index(
  * @return 1 表示成功, 0 表示失败
  */
 int get_SeqList_by_index(
-    SeqList* seqList,
+    SeqList *seqList,
     int index,
-    int* ans
+    int *ans
 ) {
     // 判断是否合法
     if (
@@ -223,10 +224,10 @@ int get_SeqList_by_index(
  * @param (SeqList*)seqList 动态数组结构类型指针
  * @return 1 表示成功, 0 表示失败
  */
-int clear_SeqList(SeqList* seqList) {
+int clear_SeqList(SeqList *seqList) {
     if (seqList == NULL)
         return 0;
-    int* p = seqList->array;
+    int *p = seqList->array;
     seqList->capicity = SEQLIST_DEFAULT_CAPICITY;
     seqList->size = SEQLIST_DEFAULT_SIZE;
     seqList->array = (int*)malloc(sizeof(int) * seqList->capicity);
@@ -240,7 +241,7 @@ int clear_SeqList(SeqList* seqList) {
  * @param (SeqList*)seqList 动态数组结构类型指针
  * @return 1 表示成功, 0 表示失败
  */
-int destory_SeqList(SeqList** seqList) {
+int destory_SeqList(SeqList **seqList) {
     if (!seqList)
         return 0;
     free((*seqList)->array);

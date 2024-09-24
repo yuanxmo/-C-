@@ -35,7 +35,7 @@ void ListNode_print_Link(LinkList listNode) {
         printf("NO LinkList!\n");
         return;
     }
-    ListNode* p = listNode->next;
+    ListNode *p = listNode->next;
     printf("Head->");
     while (p != NULL) {
         printf("%d ->", p->data);
@@ -62,12 +62,12 @@ ListNode *ListNode_init() {
  * 
  * @param (LinkList*) listNode 链表结点二级指针
  */
-void ListNode_destroy(LinkList* listNode) {
+void ListNode_destroy(LinkList *listNode) {
     // 对链表判空
     if ((*listNode) == NULL)
         return;
-    ListNode* p = (*listNode)->next;
-    ListNode* q = NULL;
+    ListNode *p = (*listNode)->next;
+    ListNode *q = NULL;
     while (p != NULL) {
         q = p;
         p = p->next;
@@ -84,11 +84,13 @@ void ListNode_destroy(LinkList* listNode) {
  * @param (int) data 要插入的数据
  * @return 插入成功返回1，否则返回0
  */
-int ListNode_insert_head(LinkList listNode, int data) {
+int ListNode_insert_head(
+    LinkList listNode, int data
+) {
     // 链表判空
     if (listNode == NULL)
         return 0;
-    ListNode* p = (ListNode*)malloc(sizeof(ListNode));
+    ListNode *p = (ListNode*)malloc(sizeof(ListNode));
     if (p == NULL)
         return 0;
     p->data = data;
@@ -104,7 +106,9 @@ int ListNode_insert_head(LinkList listNode, int data) {
  * @param (int) data 要插入的数据
  * @return 插入成功返回1，否则返回0
  */
-int ListNode_insert_tail(LinkList listNode, int data) {
+int ListNode_insert_tail(
+    LinkList listNode, int data
+) {
     // 链表判空
     if (listNode == NULL)
         return 0;
@@ -128,7 +132,11 @@ int ListNode_insert_tail(LinkList listNode, int data) {
  * @param (int) index 要插入的位置
  * @return 插入成功返回1，否则返回0
  */
-int ListNode_insert_index(LinkList listNode, int data, int index) {
+int ListNode_insert_index(
+    LinkList listNode,
+    int data,
+    int index
+) {
     // 链表判空
     if (listNode == NULL)
         return 0;
@@ -156,7 +164,10 @@ int ListNode_insert_index(LinkList listNode, int data, int index) {
  * @param (int) index 要删除的位置
  * @return 删除成功返回1，否则返回0
  */
-int ListNode_delete_index(LinkList listNode, int index) {
+int ListNode_delete_index(
+    LinkList listNode, 
+    int index
+) {
     // 链表判空
     if (listNode == NULL)
         return 0;
@@ -180,7 +191,10 @@ int ListNode_delete_index(LinkList listNode, int index) {
  * @param (int) index 要更新的位置
  * @return 更新成功返回1，否则返回0
  */
-int ListNode_update_index(LinkList listNode, int data, int index) {
+int ListNode_update_index(
+    LinkList listNode, 
+    int data, int index
+) {
     // 链表判空
     if (listNode == NULL)
         return 0;
@@ -204,7 +218,11 @@ int ListNode_update_index(LinkList listNode, int data, int index) {
  * @param (int*) ans 要获取的数据
  * @return 获取成功返回1，否则返回0
  */
-int ListNode_get_index(LinkList listNode, int index, int *ans) {
+int ListNode_get_index(
+    LinkList listNode,
+    int index,
+    int *ans
+) {
     // 链表判空
     if (listNode == NULL)
         return 0;
@@ -226,7 +244,9 @@ int ListNode_get_index(LinkList listNode, int index, int *ans) {
  * @param (LinkList) listNode 链表结点指针
  * @return 获取成功返回链表长度，否则返回0
  */
-int ListNode_get_length(LinkList listNode) {
+int ListNode_get_length(
+    LinkList listNode
+) {
     // 链表判空
     if (listNode == NULL)
         return 0;

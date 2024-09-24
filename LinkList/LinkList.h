@@ -28,9 +28,9 @@ typedef struct Node {
 /**
  * 以 ()->()->NULL 形式打印链表
  * 
- * @param (ListNode*) listNode 链表结点指针
+ * @param (LinkList) listNode 链表结点指针
  */
-void ListNode_print_Link(ListNode* listNode) {
+void ListNode_print_Link(LinkList listNode) {
     if (listNode == NULL) {
         printf("NO LinkList!\n");
         return;
@@ -60,7 +60,7 @@ ListNode *ListNode_init() {
 /**
  * 销毁链表
  * 
- * @param (ListNode*) listNode 链表结点指针
+ * @param (LinkList*) listNode 链表结点二级指针
  */
 void ListNode_destroy(LinkList* listNode) {
     // 对链表判空
@@ -80,7 +80,7 @@ void ListNode_destroy(LinkList* listNode) {
 /**
  * 在链表头插入结点
  * 
- * @param (ListNode*) listNode 链表结点指针
+ * @param (LinkList) listNode 链表结点指针
  * @param (int) data 要插入的数据
  * @return 插入成功返回1，否则返回0
  */
@@ -100,7 +100,7 @@ int ListNode_insert_head(LinkList listNode, int data) {
 /**
  * 在链表尾插入结点
  * 
- * @param (ListNode*) listNode 链表结点指针
+ * @param (LinkList) listNode 链表结点指针
  * @param (int) data 要插入的数据
  * @return 插入成功返回1，否则返回0
  */
@@ -123,7 +123,7 @@ int ListNode_insert_tail(LinkList listNode, int data) {
 /**
  * 在链表指定位置插入结点
  * 
- * @param (ListNode*) listNode 链表结点指针
+ * @param (LinkList) listNode 链表结点指针
  * @param (int) data 要插入的数据
  * @param (int) index 要插入的位置
  * @return 插入成功返回1，否则返回0
@@ -175,7 +175,7 @@ int ListNode_delete_index(LinkList listNode, int index) {
 /**
  * 更新链表指定位置的结点
  * 
- * @param (ListNode*) listNode 链表结点指针
+ * @param (LinkList) listNode 链表结点指针
  * @param (int) data 要更新的数据
  * @param (int) index 要更新的位置
  * @return 更新成功返回1，否则返回0
@@ -196,6 +196,29 @@ int ListNode_update_index(LinkList listNode, int data, int index) {
     return 1;
 }
 
+/**
+ * 获取链表指定位置的结点
+ * 
+ * @param (LinkList) listNode 链表结点指针
+ * @param (int) index 要获取的位置
+ * @param (int*) ans 要获取的数据
+ * @return 获取成功返回1，否则返回0
+ */
+int ListNode_get_index(LinkList listNode, int index, int *ans) {
+    // 链表判空
+    if (listNode == NULL)
+        return 0;
+    ListNode *p = listNode->next;
+    int i = 0;
+    while (p->next != NULL && i < index) {
+        p = p->next;
+        i++;
+    }
+    if (i != index || p->next == NULL)
+        return 0;
+    *ans = p->data;
+    return 1;
+}
 
 
 

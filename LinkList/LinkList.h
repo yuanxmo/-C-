@@ -172,7 +172,29 @@ int ListNode_delete_index(LinkList listNode, int index) {
     return 1;
 }
 
-
+/**
+ * 更新链表指定位置的结点
+ * 
+ * @param (ListNode*) listNode 链表结点指针
+ * @param (int) data 要更新的数据
+ * @param (int) index 要更新的位置
+ * @return 更新成功返回1，否则返回0
+ */
+int ListNode_update_index(LinkList listNode, int data, int index) {
+    // 链表判空
+    if (listNode == NULL)
+        return 0;
+    ListNode *p = listNode->next;
+    int i = 0;
+    while (p->next != NULL && i < index - 1) {
+        p = p->next;
+        i++;
+    }
+    if (i != index - 1 ||p->next == NULL)
+        return 0;
+    p->data = data;
+    return 1;
+}
 
 
 

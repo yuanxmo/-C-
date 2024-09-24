@@ -146,6 +146,28 @@ int ListNode_insert_index(LinkList listNode, int data, int index) {
     return 1;
 }
 
+/**
+ * 删除链表指定位置的结点
+ * 
+ */
+int ListNode_delete_index(LinkList listNode, int index) {
+    // 链表判空
+    if (listNode == NULL)
+        return 0;
+    ListNode *p = listNode;
+    int i = 0;
+    while (p->next != NULL && i < index - 1) {
+        p = p->next;
+        i++;
+    }
+    if (i != index - 1 || p->next == NULL)
+        return 0;
+    p->next = p->next->next;
+    return 1;
+}
+
+
+
 
 
 

@@ -31,12 +31,15 @@ typedef struct Node {
  * @param (ListNode*) listNode 链表结点指针
  */
 void ListNode_print_Link(ListNode* listNode) {
-    if (listNode == NULL)
+    if (listNode == NULL) {
+        printf("NO LinkList!\n");
         return;
+    }
     ListNode* p = listNode->next;
     printf("Head->");
     while (p != NULL) {
         printf("%d ->", p->data);
+        p = p->next;
     }
     printf("NULL\n");
 }
@@ -129,7 +132,7 @@ int ListNode_insert_index(LinkList listNode, int data, int index) {
     // 链表判空
     if (listNode == NULL)
         return 0;
-    ListNode *p = listNode;
+    ListNode *p = listNode->next;
     int i = 0;
     while (p->next != NULL && i < index - 1) {
         p = p->next;
@@ -157,7 +160,7 @@ int ListNode_delete_index(LinkList listNode, int index) {
     // 链表判空
     if (listNode == NULL)
         return 0;
-    ListNode *p = listNode;
+    ListNode *p = listNode->next;
     int i = 0;
     while (p->next != NULL && i < index - 1) {
         p = p->next;
@@ -168,6 +171,9 @@ int ListNode_delete_index(LinkList listNode, int index) {
     p->next = p->next->next;
     return 1;
 }
+
+
+
 
 
 

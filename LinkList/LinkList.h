@@ -220,13 +220,24 @@ int ListNode_get_index(LinkList listNode, int index, int *ans) {
     return 1;
 }
 
-
-
-
-
-
-
-
+/**
+ * 获取链表长度
+ * 
+ * @param (LinkList) listNode 链表结点指针
+ * @return 获取成功返回链表长度，否则返回0
+ */
+int ListNode_get_length(LinkList listNode) {
+    // 链表判空
+    if (listNode == NULL)
+        return 0;
+    ListNode *p = listNode->next;
+    int i = 0;
+    while (p->next != NULL) {
+        p = p->next;
+        i++;
+    }
+    return i;
+}
 
 
 #endif

@@ -117,6 +117,36 @@ int ListNode_insert_tail(LinkList listNode, int data) {
     return 1;
 }
 
+/**
+ * 在链表指定位置插入结点
+ * 
+ * @param (ListNode*) listNode 链表结点指针
+ * @param (int) data 要插入的数据
+ * @param (int) index 要插入的位置
+ * @return 插入成功返回1，否则返回0
+ */
+int ListNode_insert_index(LinkList listNode, int data, int index) {
+    // 链表判空
+    if (listNode == NULL)
+        return 0;
+    ListNode *p = listNode;
+    int i = 0;
+    while (p->next != NULL && i < index - 1) {
+        p = p->next;
+        i++;
+    }
+    if (i != index - 1)
+        return 0;
+    ListNode *q = (ListNode*)malloc(sizeof(ListNode));
+    if (q == NULL)
+        return 0;
+    q->data = data;
+    q->next = p->next;
+    p->next = q;
+    return 1;
+}
+
+
 
 
 

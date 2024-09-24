@@ -59,7 +59,10 @@ ListNode *ListNode_init() {
  * 
  * @param (ListNode*) listNode 链表结点指针
  */
-void ListNode_destroy(ListNode** listNode) {
+void ListNode_destroy(LinkList* listNode) {
+    // 对链表判空
+    if ((*listNode) == NULL)
+        return;
     ListNode* p = (*listNode)->next;
     ListNode* q = NULL;
     while (p != NULL) {
@@ -71,6 +74,25 @@ void ListNode_destroy(ListNode** listNode) {
     *listNode = NULL;
 }
 
+/**
+ * 在链表头插入结点
+ * 
+ * @param (ListNode*) listNode 链表结点指针
+ * @param (int) data 要插入的数据
+ * @return 插入成功返回1，否则返回0
+ */
+int ListNode_insert_head(LinkList listNode, int data) {
+    // 链表判空
+    if (listNode == NULL)
+        return 0;
+    ListNode* p = (ListNode*)malloc(sizeof(ListNode));
+    if (p == NULL)
+        return 0;
+    p->data = data;
+    p->next = listNode->next;
+    listNode->next = p;
+    return 1;
+}
 
 
 

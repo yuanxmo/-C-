@@ -149,6 +149,9 @@ int ListNode_insert_index(LinkList listNode, int data, int index) {
 /**
  * 删除链表指定位置的结点
  * 
+ * @param (ListNode*) listNode 链表结点指针
+ * @param (int) index 要删除的位置
+ * @return 删除成功返回1，否则返回0
  */
 int ListNode_delete_index(LinkList listNode, int index) {
     // 链表判空

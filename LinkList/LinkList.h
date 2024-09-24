@@ -94,8 +94,28 @@ int ListNode_insert_head(LinkList listNode, int data) {
     return 1;
 }
 
-
-
+/**
+ * 在链表尾插入结点
+ * 
+ * @param (ListNode*) listNode 链表结点指针
+ * @param (int) data 要插入的数据
+ * @return 插入成功返回1，否则返回0
+ */
+int ListNode_insert_tail(LinkList listNode, int data) {
+    // 链表判空
+    if (listNode == NULL)
+        return 0;
+    ListNode *p = listNode;
+    while (p->next != NULL)
+        p = p->next;
+    ListNode *q = (ListNode*)malloc(sizeof(ListNode));
+    if (q == NULL)
+        return 0;
+    q->data = data;
+    q->next = NULL;
+    p->next = q;
+    return 1;
+}
 
 
 

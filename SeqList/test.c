@@ -1,4 +1,5 @@
 #include "SeqList.h"
+#include "SeqList.c"
 
 int main() {
     // 数据初始化

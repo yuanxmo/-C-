@@ -1,4 +1,4 @@
-#include "LinkList.h"
+#include "LinkList.c"
 
 void test_LinkList_init_destory();
 void test_LinkList_print();

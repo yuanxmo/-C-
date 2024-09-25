@@ -1,4 +1,3 @@
-#include "SeqList.h"
 #include "SeqList.c"
 
 int main() {
